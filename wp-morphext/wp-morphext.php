@@ -11,22 +11,26 @@
  */
 
 
-function wp_morphext_init() {
-    wp_enqueue_script( 'morphext-js', plugins_url( '/js/morphext.min.js', __FILE__ ), array('jquery'), '1.0', false);
+function wp_morphext_scripts() {
     wp_enqueue_style( 'animate-css', plugins_url( '/css/animate.css', __FILE__ ));
     wp_enqueue_style( 'morphext-css', plugins_url( '/css/morphext.css', __FILE__, array('animate-css') ));
+    wp_enqueue_script( 'morphext-js', plugins_url( '/js/morphext.min.js', __FILE__ ), array('jquery'), '1.0', false);
 }
-add_action('wp_enqueue_scripts','wp_morphext_init');
+add_action('wp_enqueue_scripts','wp_morphext_scripts');
 
 function wp_morphext(){
 ?>
 	<script type='text/javascript'>
-    jQuery('.wp-morphext').Morphext({
-      animation: 'flipInX',
-      separator: ',',
-      speed: '3000'
-    });
-    jQuery('.wp-morphext').show();
+    function wpMorphext() {
+      var morphextAnimation = jQuery('#wp-morphext').data('animation'),
+          morphextSpeed = jQuery('#wp-morphext').data('speed');
+      jQuery('#wp-morphext').Morphext({
+        animation: morphextAnimation,
+        separator: ',',
+        speed: morphextSpeed
+      }).show();
+    };
+    wpMorphext();
 	</script>
 <?php
 };
@@ -40,6 +44,6 @@ function wp_morphext_shortcode($atts, $content = null){
 		'text'      => 'Example 1, Example 2, Example 3'
 	), $atts );
 
-	return '<span style="display:none;" class="wp-morphext">'.esc_attr($atts['text']).'</span>';
+	return '<span style="display:none;" id="wp-morphext" data-animation="'.esc_attr($atts['animation']).'" data-speed="'.esc_attr($atts['speed']).'">'.esc_attr($atts['text']).'</span>';
 };
 add_shortcode( 'wpmorphext', 'wp_morphext_shortcode' );
