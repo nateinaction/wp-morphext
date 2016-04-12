@@ -3,7 +3,7 @@
 /**
  * Plugin Name: WP Morphext
  * Plugin URI: https://nategay.me/
- * Description: WP Morphext adds easy shortcode access to the Morphext text manipulation library.
+ * Description: WP Morphext adds easy shortcode access to the Morphext text manipulation library. Example use: [wpmorphext animation="fadeIn" speed="3000" text="Example 1, Example 2, etc"]
  * Version: 1.0
  * Author: Nate Gay
  * Author URI: https://nategay.me/
@@ -44,6 +44,6 @@ function wp_morphext_shortcode($atts, $content = null){
 		'text'      => 'Example 1, Example 2, Example 3'
 	), $atts );
 
-	return '<span style="display:none;" id="wp-morphext" data-animation="'.esc_attr($atts['animation']).'" data-speed="'.esc_attr($atts['speed']).'">'.esc_attr($atts['text']).'</span>';
+	return '<span style="display:none;overflow:hidden;" id="wp-morphext" data-animation="'.esc_attr($atts['animation']).'" data-speed="'.esc_attr($atts['speed']).'">'.esc_attr($atts['text']).'</span>';
 };
 add_shortcode( 'wpmorphext', 'wp_morphext_shortcode' );
