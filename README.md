@@ -1,7 +1,7 @@
 # WP Morphext
 
 ## About
-WP Morphext is a WordPress Plugin which creates a shortcode for easy access to the Morphext text manipulation library.
+WP Morphext is a WordPress Plugin which creates a shortcode for easy access to the Morphext text animation library.
 
 ## Usage
 1. Install the WP Morphext plugin.
