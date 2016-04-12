@@ -21,6 +21,9 @@ WP Morphext is a WordPress Plugin which creates a shortcode for easy access to t
 
 For a list of all animations please visit [Animate.css](https://daneden.github.io/animate.css/)
 
+== Important Note ==
+Some animations travel the entirety of the viewport. To limit where the animation can be seen you must set the parent container as `overflow: hidden;`
+
 == Dependencies ==
 1. **Animate.css** — [Homepage](https://daneden.github.io/animate.css/) — [MIT License](https://opensource.org/licenses/MIT)
 2. **Morphext** — [Homepage](http://morphext.fyianlai.com/) — [MIT License](http://ian.mit-license.org/)
