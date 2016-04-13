@@ -23,7 +23,6 @@ function wp_morphext(){
 	<script type='text/javascript'>
     function wpMorphext() {
       jQuery('.wp-morphext').each(function() {
-        console.log(this);
         var morphextAnimation = jQuery(this).data('animation'),
             morphextSpeed = jQuery(this).data('speed');
         jQuery(this).Morphext({
