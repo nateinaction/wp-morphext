@@ -2,7 +2,7 @@
 Contributors: nateinaction
 Tags: shortcode, text, animation
 Requires at least: 3.0.1
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,9 @@ Some animations travel the entirety of the viewport. To limit where the animatio
 GPLv2 (or later)
 
 == Changelog ==
+
+= 1.1 =
+* Now capable of displaying multiple animated shortcodes on single page.
 
 = 1.0 =
 * Pushing the baby out of the nest.

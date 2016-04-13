@@ -22,3 +22,11 @@ Some animations travel the entirety of the viewport. To limit where the animatio
 
 ## License
 GPLv2 (or later)
+
+## Changelog
+
+### 1.1
+* Now capable of displaying multiple animated shortcodes on single page.
+
+### 1.0
+* Pushing the baby out of the nest.
