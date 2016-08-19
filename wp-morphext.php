@@ -4,7 +4,7 @@
  * Plugin Name: WP Morphext
  * Plugin URI: https://nategay.me/
  * Description: WP Morphext adds easy shortcode access to the Morphext text animation library. Example use: [wpmorphext animation="fadeIn" speed="3000" text="Example 1, Example 2, etc"]
- * Version: 1.1
+ * Version: 1.2
  * Author: Nate Gay
  * Author URI: https://nategay.me/
  * License: GPL2

@@ -37,6 +37,9 @@ GPLv2 (or later)
 
 == Changelog ==
 
+= 1.2 =
+* Updated morphext.js from v2.4.4 to v2.4.5
+
 = 1.1 =
 * Now capable of displaying multiple animated shortcodes on single page.
 
