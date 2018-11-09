@@ -1,0 +1,17 @@
+{
+    "name": "nateinaction/wp-morphext",
+    "description": "WP Morphext adds easy shortcode access to the Morphext text animation library.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Nate Gay",
+            "email": "email@nategay.me"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "johnkary/phpunit-speedtrap": "^2.0"
+    }
+}

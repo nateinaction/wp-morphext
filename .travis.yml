@@ -1,0 +1,25 @@
+sudo: 'required'
+notifications:
+  email: false
+
+services:
+  - 'docker'
+
+# Ensure these only run on master
+stages:
+  - name: before_script
+    if: branch = master
+  - script
+  - name: after_script
+    if: branch = master
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - make
+
+after_script:
+  - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT

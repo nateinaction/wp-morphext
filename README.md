@@ -1,4 +1,5 @@
 # WP Morphext
+[![Maintainability](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/maintainability)](https://codeclimate.com/github/nateinaction/wp-morphext/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/test_coverage)](https://codeclimate.com/github/nateinaction/wp-morphext/test_coverage) [![Build Status](https://travis-ci.org/nateinaction/wp-morphext.svg?branch=master)](https://travis-ci.org/nateinaction/wp-morphext)
 
 ## About
 WP Morphext is a WordPress Plugin that allows for users to add shortcodes to animate text on their website. The plugin uses shortcodes to provide a native WordPress interface for using the morphext.js and animate.css libraries.
