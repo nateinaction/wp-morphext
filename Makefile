@@ -6,7 +6,7 @@ PLUGIN_NAME := wp-morphext
 # Shortcuts
 DOCKER_RUN := docker run --rm -v `pwd`:/workspace
 PHPCS_DOCKER_IMAGE := wpengine/phpcs --standard=./test/phpcs.xml --warning-severity=8
-WORDPRESS_INTEGRATION_DOCKER_IMAGE := nateinaction/wordpress-integration
+WORDPRESS_INTEGRATION_DOCKER_IMAGE := worldpeaceio/wordpress-integration
 COMPOSER_DOCKER_IMAGE := composer
 COMPOSER_DIR := -d "/workspace/"
 BUILD_DIR := ./build
