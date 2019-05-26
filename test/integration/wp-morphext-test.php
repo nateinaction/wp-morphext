@@ -5,8 +5,6 @@
  * @package nateinaction/wp-morphext
  */
 
-namespace WpMorphext;
-
 /**
  * Unit tests for SetSegment shortcode class
  */
@@ -32,7 +30,7 @@ class Wp_Morphext_Test extends \WP_UnitTestCase {
 		$expect_animation = 'data-animation="super-cool-flip123"';
 		$expect_speed = 'data-speed="2"';
 		$expect_text = '>Nik, nak, paddy wak</span>';
-		$shortcode_output = wp_morphext_shortcode( $atts );
+		$shortcode_output = WpMorphext\shortcode( $atts );
 
 		$this->assertContains( $expect_animation, $shortcode_output );
 		$this->assertContains( $expect_speed, $shortcode_output );

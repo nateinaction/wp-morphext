@@ -3,7 +3,7 @@
  * Plugin Name: WP Morphext
  * Plugin URI: https://nategay.me/
  * Description: WP Morphext adds easy shortcode access to the Morphext text animation library. Example use: [wpmorphext animation="fadeIn" speed="3000" text="Example 1, Example 2, etc"]
- * Version: 1.3
+ * Version: 1.3.1
  * Author: Nate Gay
  * Author URI: https://nategay.me/
  * License: GPL2+
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Enqueue Morphext scripts
  */
-function wp_morphext_enqueue_scripts() {
+function enqueue_scripts() {
 	$resource_version = '1.3';
 	wp_enqueue_style(
 		'animate-css',
@@ -41,12 +41,12 @@ function wp_morphext_enqueue_scripts() {
 		false
 	);
 }
-add_action( 'wp_enqueue_scripts', 'wp_morphext_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'WpMorphext\enqueue_scripts' );
 
 /**
  * Inline JS added for each animated element on a page
  */
-function wp_morphext() {
+function add_inline_js() {
 	?>
 	<script type='text/javascript'>
 	function wpMorphext() {
@@ -54,9 +54,9 @@ function wp_morphext() {
 		var morphextAnimation = jQuery(this).data('animation'),
 			morphextSpeed = jQuery(this).data('speed');
 		jQuery(this).Morphext({
-		  animation: morphextAnimation,
-		  separator: ',',
-		  speed: morphextSpeed
+			animation: morphextAnimation,
+			separator: ',',
+			speed: morphextSpeed
 		}).show();
 	  });
 	};
@@ -64,14 +64,14 @@ function wp_morphext() {
 	</script>
 	<?php
 };
-add_action( 'wp_footer', 'wp_morphext' );
+add_action( 'wp_footer', 'WpMorphext\add_inline_js' );
 
 /**
  * Add the shortcode
  *
  * @param array $atts Array of attributes passed into the shortcode.
  */
-function wp_morphext_shortcode( $atts ) {
+function shortcode( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'animation' => 'flipInX',
@@ -82,4 +82,4 @@ function wp_morphext_shortcode( $atts ) {
 	);
 	return '<span style="display:none;" class="wp-morphext" data-animation="' . esc_attr( $atts['animation'] ) . '" data-speed="' . esc_attr( $atts['speed'] ) . '">' . esc_attr( $atts['text'] ) . '</span>';
 };
-add_shortcode( 'wpmorphext', 'wp_morphext_shortcode' );
+add_shortcode( 'wpmorphext', 'WpMorphext\shortcode' );
