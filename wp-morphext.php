@@ -1,14 +1,18 @@
 <?php
 /**
  * Plugin Name: WP Morphext
- * Plugin URI: https://nategay.me/
+ * Plugin URI: https://github.com/nateinaction/wp-morphext
  * Description: WP Morphext adds easy shortcode access to the Morphext text animation library. Example use: [wpmorphext animation="fadeIn" speed="3000" text="Example 1, Example 2, etc"]
  * Version: 1.3.1
  * Author: Nate Gay
- * Author URI: https://nategay.me/
+ * Author URI: https://github.com/nateinaction
  * License: GPL2+
  *
- * @package nateinaction/wp-morphext
+ * @category WordPress_Plugin
+ * @package  wp-morphext
+ * @author   Nate Gay <email@nategay.me>
+ * @license  GPL2+
+ * @link     https://github.com/nateinaction/wp-morphext
  */
 
 namespace WpMorphext;
@@ -18,6 +22,8 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Enqueue Morphext scripts
+ *
+ * @return void
  */
 function enqueue_scripts() {
 	$resource_version = '1.3';
@@ -45,20 +51,21 @@ add_action( 'wp_enqueue_scripts', 'WpMorphext\enqueue_scripts' );
 
 /**
  * Inline JS added for each animated element on a page
+ *
+ * @return void
  */
-function add_inline_js() {
-	?>
+function add_inline_js() {  ?>
 	<script type='text/javascript'>
 	function wpMorphext() {
-	  jQuery('.wp-morphext').each(function() {
-		var morphextAnimation = jQuery(this).data('animation'),
-			morphextSpeed = jQuery(this).data('speed');
-		jQuery(this).Morphext({
-			animation: morphextAnimation,
-			separator: ',',
-			speed: morphextSpeed
-		}).show();
-	  });
+		jQuery('.wp-morphext').each(function() {
+			var morphextAnimation = jQuery(this).data('animation'),
+				morphextSpeed = jQuery(this).data('speed');
+			jQuery(this).Morphext({
+				animation: morphextAnimation,
+				separator: ',',
+				speed: morphextSpeed
+			}).show();
+		});
 	};
 	wpMorphext();
 	</script>
@@ -69,7 +76,9 @@ add_action( 'wp_footer', 'WpMorphext\add_inline_js' );
 /**
  * Add the shortcode
  *
- * @param array $atts Array of attributes passed into the shortcode.
+ * @param  array $atts Array of attributes passed into the shortcode.
+ *
+ * @return string HTML span element
  */
 function shortcode( $atts ) {
 	$atts = shortcode_atts(

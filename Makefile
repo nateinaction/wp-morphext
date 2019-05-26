@@ -5,20 +5,20 @@ PLUGIN_NAME := wp-morphext
 
 # Shortcuts
 DOCKER_RUN := docker run --rm -v `pwd`:/workspace
-PHPCS_DOCKER_IMAGE := wpengine/phpcs --standard=./test/phpcs.xml --warning-severity=8
-WORDPRESS_INTEGRATION_DOCKER_IMAGE := worldpeaceio/wordpress-integration
+WP_TEST_IMAGE := worldpeaceio/wordpress-integration
 COMPOSER_DOCKER_IMAGE := composer
 COMPOSER_DIR := -d "/workspace/"
 BUILD_DIR := ./build
+VENDOR_BIN_DIR := /workspace/vendor/bin
 
 # Commands
 all: lint composer_install test
 
 lint:
-	$(DOCKER_RUN) $(PHPCS_DOCKER_IMAGE) .
+	$(DOCKER_RUN) --entrypoint "$(VENDOR_BIN_DIR)/phpcs" $(WP_TEST_IMAGE) wp-morphext.php
 
 phpcbf:
-	$(DOCKER_RUN) --entrypoint "/composer/vendor/bin/phpcbf" $(PHPCS_DOCKER_IMAGE) .
+	$(DOCKER_RUN) --entrypoint "$(VENDOR_BIN_DIR)/phpcbf" $(WP_TEST_IMAGE) wp-morphext.php
 
 composer_install:
 	$(DOCKER_RUN) $(COMPOSER_DOCKER_IMAGE) install $(COMPOSER_DIR)
@@ -27,7 +27,7 @@ composer_update:
 	$(DOCKER_RUN) $(COMPOSER_DOCKER_IMAGE) update $(COMPOSER_DIR)
 
 test:
-	$(DOCKER_RUN) $(WORDPRESS_INTEGRATION_DOCKER_IMAGE) ./vendor/bin/phpunit --testsuite="integration"
+	$(DOCKER_RUN) $(WP_TEST_IMAGE) ./vendor/bin/phpunit --testsuite="integration"
 
 get_version:
 	@awk '/Version:/{printf $$NF}' $(PLUGIN_NAME).php
