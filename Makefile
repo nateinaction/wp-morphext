@@ -12,7 +12,10 @@ BUILD_DIR := ./build
 VENDOR_BIN_DIR := /workspace/vendor/bin
 
 # Commands
-all: lint composer_install test
+all: composer_install lint test
+
+clean:
+	rm -rf vendor
 
 lint:
 	$(DOCKER_RUN) --entrypoint "$(VENDOR_BIN_DIR)/phpcs" $(WP_TEST_IMAGE) wp-morphext.php

@@ -2,7 +2,7 @@
 Contributors: nateinaction
 Tags: shortcode, text, animation
 Requires at least: 3.0.1
-Tested up to: 4.9
+Tested up to: 5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,12 +36,22 @@ GPLv2 (or later)
 3. On a post or page type `[wpmorphext text="Example 1, Example 2, etc"]`
 
 == Changelog ==
+= 1.4.0 =
+* Update animate.css from v2.5.1 to v3.7.0
+* Improve performance by using minified animate.css
+* Improve performance by inlining small custom css
 
-= 1.2 =
+= 1.3.1 =
+* Fix namespace issue
+
+= 1.3.0 =
+* Now with automated tests and WPCS linting
+
+= 1.2.0 =
 * Updated morphext.js from v2.4.4 to v2.4.5
 
-= 1.1 =
+= 1.1.0 =
 * Now capable of displaying multiple animated shortcodes on single page.
 
-= 1.0 =
+= 1.0.0 =
 * Pushing the baby out of the nest.
