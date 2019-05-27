@@ -3,7 +3,7 @@
  * Plugin Name: WP Morphext
  * Plugin URI: https://github.com/nateinaction/wp-morphext
  * Description: WP Morphext adds easy shortcode access to the Morphext text animation library. Example use: [wpmorphext animation="fadeIn" speed="3000" text="Example 1, Example 2, etc"]
- * Version: 1.3.1
+ * Version: 1.4.0
  * Author: Nate Gay
  * Author URI: https://github.com/nateinaction
  * License: GPL2+
@@ -26,16 +26,10 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function enqueue_scripts() {
-	$resource_version = '1.3';
+	$resource_version = '1.4.0';
 	wp_enqueue_style(
 		'animate-css',
-		plugins_url( '/css/animate.css', __FILE__ ),
-		array(),
-		$resource_version
-	);
-	wp_enqueue_style(
-		'morphext-css',
-		plugins_url( '/css/morphext.css', __FILE__, array( 'animate-css' ) ),
+		plugins_url( '/css/animate.min.css', __FILE__ ),
 		array(),
 		$resource_version
 	);
@@ -50,11 +44,27 @@ function enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'WpMorphext\enqueue_scripts' );
 
 /**
+ * Inline CSS added for each animated element on a page
+ *
+ * @return void
+ */
+function add_inline_css() {  ?>
+	<style>
+	.morphext > .animated {
+		display: inline-block;
+	}
+	</style>
+	<?php
+};
+add_action( 'wp_head', 'WpMorphext\add_inline_css' );
+
+/**
  * Inline JS added for each animated element on a page
  *
  * @return void
  */
-function add_inline_js() {  ?>
+function add_inline_js() {
+	?>
 	<script type='text/javascript'>
 	function wpMorphext() {
 		jQuery('.wp-morphext').each(function() {

@@ -1,5 +1,5 @@
 # WP Morphext
-[![Maintainability](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/maintainability)](https://codeclimate.com/github/nateinaction/wp-morphext/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/test_coverage)](https://codeclimate.com/github/nateinaction/wp-morphext/test_coverage) [![Build Status](https://travis-ci.org/nateinaction/wp-morphext.svg?branch=master)](https://travis-ci.org/nateinaction/wp-morphext)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/maintainability)](https://codeclimate.com/github/nateinaction/wp-morphext/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/test_coverage)](https://codeclimate.com/github/nateinaction/wp-morphext/test_coverage) [![Build Status](https://travis-ci.com/nateinaction/wp-morphext.svg?branch=master)](https://travis-ci.com/nateinaction/wp-morphext)
 
 ## About
 WP Morphext is a WordPress Plugin that allows for users to add shortcodes to animate text on their website. The plugin uses shortcodes to provide a native WordPress interface for using the morphext.js and animate.css libraries.
@@ -26,11 +26,22 @@ GPLv2 (or later)
 
 ## Changelog
 
-### 1.2
+### 1.4.0
+* Update animate.css from v2.5.1 to v3.7.0
+* Improve performance by using minified animate.css
+* Improve performance by inlining small custom css
+
+### 1.3.1
+* Fix namespace issue
+
+### 1.3
+* Now with automated tests and WPCS linting
+
+### 1.2.0
 * Updated morphext.js from v2.4.4 to v2.4.5
 
-### 1.1
-* Now capable of displaying multiple animated shortcodes on single page.
+### 1.1.0
+* Now capable of displaying multiple animated shortcodes on single page
 
-### 1.0
+### 1.0.0
 * Pushing the baby out of the nest.
