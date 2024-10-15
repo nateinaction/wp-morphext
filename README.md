@@ -1,3 +1,5 @@
+This WordPress plugin is no longer maintained. Thank you for all the fun and learnings over the years!
+
 # WP Morphext
 [![Maintainability](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/maintainability)](https://codeclimate.com/github/nateinaction/wp-morphext/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c5382b2c660d4f39eaaa/test_coverage)](https://codeclimate.com/github/nateinaction/wp-morphext/test_coverage) [![Build Status](https://travis-ci.com/nateinaction/wp-morphext.svg?branch=master)](https://travis-ci.com/nateinaction/wp-morphext)
 
